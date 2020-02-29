@@ -1,5 +1,13 @@
 # DotNetCoreSignalR
 
+Steps to execute:
+1. Run the Backend code (Debug)
+2. Do npm install inside clientApp folder
+3. npm start
+4. To subscribe client into signalr hub please provide the name as query string (ex: http://localhost:4200/?username=penny)
+5. Only Big Bang Theory users can only to do group chat
+6. Can chat individual and can do group chat.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Development server
