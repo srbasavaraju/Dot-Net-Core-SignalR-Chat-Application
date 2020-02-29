@@ -1,0 +1,65 @@
+<div *ngIf="user.isBBTUser">
+  <div> Group Chat:</div>
+  <div>
+    <form (ngSubmit)="sendGroupMessage()">
+      <label>Group Name:</label> &nbsp;
+      <input name="name" placeholder="BBT" readonly>
+      <br />
+      <br />
+      <label>Message:</label> &nbsp;
+      <input name="message" [(ngModel)]="groupMessage" required>
+      <br />
+      <br />
+      &nbsp;&nbsp;<input type="submit" value="Send">
+    </form>
+  </div>
+</div>
+<br />
+<br />
+<div style="font-size: large;">Select User to Chat:</div>
+<br />
+<div class="footer">
+  <div class="row">
+    <div class="links" *ngFor="let user of users">
+      <div style="float:left;display:inline-block;height:50px;"
+        [ngStyle]="{'width': 'calc(100% /' + user.length + ')'}">
+        <span style="cursor: pointer;" (click)="onSelection(user.name);">{{user.name}}</span> &nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showChatBox">
+  <form (ngSubmit)="sendMessage()">
+    <label>Name:</label> &nbsp;
+    <input name="name" placeholder="{{whomToChat}}" readonly>
+    <br />
+    <br />
+    <label>Message:</label> &nbsp;
+    <input name="message" [(ngModel)]="message" required>
+    <br />
+    <br />
+    &nbsp;&nbsp;<input type="submit" value="Send">
+  </form>
+</div>
+<br />
+<br />
+<div *ngIf="messages.length">
+  <div>*******************************************************</div>
+  <P> Direct Messages: </P>
+  <ul>
+    <li *ngFor="let msg of messages">
+      {{ msg }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="groupMessages.length">
+  <div>*******************************************************</div>
+  <P>Group Messages: </P>
+  <ul>
+    <li *ngFor="let msg of groupMessages">
+      {{ msg }}
+    </li>
+  </ul>
+</div>
